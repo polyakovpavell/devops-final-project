@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+spec:
+  type: NodePort          # 👈 Открываем наружу (или пишем ClusterIP для внутренней сети)
+  selector:
+    app: frontend         # 👈 Ищем Поды с меткой app: frontend
+  ports:
+    - port: 80            # Порт самого Сервиса
+      targetPort: 5000      # Порт контейнера внутри Пода
+      nodePort: 30080     # Внешний порт на сервере (для доступа из браузера)

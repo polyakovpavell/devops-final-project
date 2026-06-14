@@ -1,0 +1,8 @@
+# Скрытые файлы macOS
+.DS_Store
+
+# Игнорируем файлы Terraform (секреты и тяжелые плагины)
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl

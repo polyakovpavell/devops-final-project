@@ -39,6 +39,16 @@ During the implementation of this pipeline, several real-world engineering chall
 To deploy this infrastructure in your own Yandex Cloud environment:
 
 1. **Provision Infrastructure:**
-   ```bash
+```bash
    cd terraform
    terraform init && terraform apply
+```
+
+2. **Configure Servers:**
+   Update `ansible/inventory.ini` with the new external IP addresses and run:
+```bash
+   ansible-playbook -i ansible/inventory.ini ansible/playbook.yml
+```
+
+3. **Trigger Pipeline:**
+   Push the code to GitLab. Ensure CI/CD variables (`SSH_PRIVATE_KEY`) are properly configured in the repository settings.
